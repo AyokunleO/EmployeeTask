@@ -27,10 +27,7 @@
         </div>
         <label for="Salary" class="col-sm-2 col-form-label bg-secondary font-weight-bold">Salary:</label>
         <div class="col-sm-10 input-group-lg">
-            <div class="input-group-append">
-                <div class="input-group-text">$ </div>
-            </div>
-            <input type="text" readonly class="form-control" id="Salary" value="@Model.Salary">
+            <input type="text" readonly class="form-control" id="Salary" value="$@Model.Salary">
         </div>
 
         @if (Model.Confirmed == true)
