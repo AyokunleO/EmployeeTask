@@ -1,0 +1,49 @@
+﻿@model Employee
+@{
+
+    ViewData["Title"] = "Employee Info";
+}
+@*<h1>First Name: <span class="label label-default">@Model.FirstName</span></h1>
+    <h1>Last Name: <span class="label label-default">@Model.LastName</span></h1>
+    <h1>Department: <span class="label label-default">@Model.Department</span></h1>
+    <h1>Salary: <span class="label label-default">@Model.Salary</span></h1>*@
+
+
+<form>
+    <div class="form-group row">
+        <label for="FirstName" class="col-sm-2 col-form-label bg-secondary font-weight-bold">First Name:</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control" id="firstName" value="@Model.FirstName">
+        </div>
+
+        <label for="LastName" class="col-sm-2 col-form-label bg-secondary font-weight-bold">Second Name:</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control" id="LastName" value="@Model.LastName">
+        </div>
+
+        <label for="Department" class="col-sm-2 col-form-label bg-secondary font-weight-bold">Department:</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control" id="Department" value="@Model.Department">
+        </div>
+        <label for="Salary" class="col-sm-2 col-form-label bg-secondary font-weight-bold">Salary:</label>
+        <div class="col-sm-10 input-group-lg">
+            <div class="input-group-append">
+                <div class="input-group-text">$ </div>
+            </div>
+            <input type="text" readonly class="form-control" id="Salary" value="@Model.Salary">
+        </div>
+
+        @if (Model.Confirmed == true)
+        {
+             <h1>Employee has been confirmed!</h1>
+        }
+        else
+        {
+            <div class="form-group">
+                <input asp-controller="Home" asp-action="Confirm" asp-route-id="@Model.Id" type="submit" class="form-control btn btn-block btn-danger" value="Click to Confirm Employee" />
+            </div>
+        }
+
+
+    </div>
+</form>
